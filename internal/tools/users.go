@@ -7,7 +7,7 @@ import (
 
 // SearchUsersIn is the input of search_users.
 type SearchUsersIn struct {
-	Search string `json:"search,omitempty" jsonschema:"Match against name or email."`
+	Search string `json:"search,omitempty" jsonschema:"Match against user names (email is not searched)."`
 	First  int    `json:"first,omitempty" jsonschema:"Maximum number of users to return (default 15, max 100)."`
 	After  string `json:"after,omitempty" jsonschema:"Pagination cursor (page_info.end_cursor)."`
 }
@@ -82,7 +82,7 @@ const getUserQuery = `query($id: ID) {
 const whoamiQuery = `query { user { id name email role } }`
 
 func (t *Tools) registerUsers(r *registry) {
-	add(r, "search_users", "Search users by name or email, sorted by name.", false, t.searchUsers)
+	add(r, "search_users", "Search users by name, sorted by name.", false, t.searchUsers)
 	add(r, "get_user", "Get a user with their contact methods and the services they are on call for now.", false, t.getUser)
 	add(r, "whoami", "The user this MCP server acts as (the owner of the API token), with their role.", false, t.whoami)
 }

@@ -103,7 +103,7 @@ List tools take `first` (default 15, max 100) and `after`, and return `page_info
 | `escalate_alert` | yes | Escalate an alert to the next step now. |
 | `create_alert` | yes | Create an alert on a service. This pages whoever is on call. |
 | `get_oncall` | no | Who is on call for a service, an escalation policy or a schedule (a schedule can be asked for a past or future time). |
-| `search_users` | no | Search users by name or email. |
+| `search_users` | no | Search users by name. |
 | `get_user` | no | A user with contact methods and current on-call assignments. |
 | `whoami` | no | The user the token belongs to, with their role. |
 
