@@ -1,0 +1,5 @@
+/oncallalert-mcp
+/dist/
+*.test
+*.out
+.env
