@@ -10,6 +10,7 @@ You run the binary on your own machine. It talks to your OnCallAlert server over
 - A user API token. Create one in the web UI: open your profile, go to **API Tokens**, choose **Create token**, and pick the scope:
   - **Read** for read-only use.
   - **Write** if the AI should also acknowledge, resolve or escalate alerts, create alerts, or create overrides.
+    Admins create Write tokens directly. Other users request one, an admin approves it on **Admin → API Keys**, and then the user reveals the token once from their profile.
 
 ## Install
 
