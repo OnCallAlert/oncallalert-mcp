@@ -6,11 +6,13 @@ You run the binary on your own machine. It talks to your OnCallAlert server over
 
 ## Requirements
 
-- An OnCallAlert server newer than v1.0.0 (the first release with user API tokens).
+- An OnCallAlert server v2.1.0 or newer (adds the Viewer and Owner roles).
 - A user API token. Create one in the web UI: open your profile, go to **API Tokens**, choose **Create token**, and pick the scope:
   - **Read** for read-only use.
   - **Write** if the AI should also acknowledge, resolve or escalate alerts, create alerts, or create overrides.
     Admins create Write tokens directly. Other users request one, an admin approves it on **Admin → API Keys**, and then the user reveals the token once from their profile.
+
+Viewer users are read-only. A Viewer's token only gets the read tools (`list_schedules`, `get_schedule`, `list_services`, `list_alerts`, `get_alert`, `get_oncall`, `search_users`, `get_user`, `whoami`). The write tools return a permission error for Viewers. Roles shown by `whoami` and the user tools are `viewer`, `user`, `admin` or `owner`.
 
 ## Install
 
