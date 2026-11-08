@@ -88,3 +88,13 @@ func TestWhoAmI(t *testing.T) {
 		t.Fatal("expected error when no current user")
 	}
 }
+
+func TestWhoAmI_ViewerAndOwnerRoles(t *testing.T) {
+	for _, role := range []string{"viewer", "owner"} {
+		tl, _ := fakeTools(t, static(`{"data":{"user":{"id":"u1","name":"Ann","email":"a@x.io","role":"`+role+`"}}}`))
+		out, err := tl.whoami(ctx, WhoAmIIn{})
+		if err != nil || out.Role != role {
+			t.Fatalf("role %s: out=%+v err=%v", role, out, err)
+		}
+	}
+}
